@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    .highlighted {
+        background: yellow;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Premium speech generator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <form method="post" action="/">
+        <div class="rendered-form">
+        <div class="">
+            <h1 access="false" id="control-455918">Premium speech generator</h1></div>
+        <div class="formbuilder-textarea form-group field-textarea-1666194981282">
+            <label for="text-input" class="formbuilder-textarea-label">Enter your text here:<span class="tooltip-element" tooltip="Enter the text that you want to make more premium"></span></label>
+            <textarea type="textarea" class="form-control" name="text-input" access="false" rows="10" id="text-input" title="Enter the text that you want to make more premium">{{ input_text }}</textarea>
+        </div>
+        <div class="formbuilder-button form-group field-button-1666195124281">
+            <button type="submit" class="btn-primary btn" name="button-submit" value="submit" access="false" style="primary" id="button-submit">Go</button>
+            <button type="submit" class="btn-info btn" name="button-generate" value="generate" access="false" style="primary" id="button-generate">Random text</button>
+        </div>
+        <div class="formbuilder-textarea form-group field-textarea-1666195218250">
+            <label for="text-output" class="formbuilder-textarea-label">Premium text:</label>
+            <div class="form-control" name="text-output" access="false" rows="10" id="text-output">{{ output_text | safe}}</div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -3,7 +3,7 @@ from enum import Enum
 from nltk.corpus import wordnet as wn
 from nltk.corpus.reader.wordnet import WordNetError
 from pprint import pprint
-from brown import get_text, pretty_format
+from premium.brown import get_text, pretty_format
 from tools import preprocess
 
 
@@ -136,7 +136,7 @@ Word = str
 PartOfSpeech = str
 
 
-def make_token_rigid(token: tuple[Word, PartOfSpeech], rigidness=0.5):
+def make_token_rigid(token: tuple[Word, PartOfSpeech], rigidness=0.5, highlighter=None):
     weight = POS_WEIGHTS.get(token[1], 0)
     word = token[0]
 
@@ -147,16 +147,19 @@ def make_token_rigid(token: tuple[Word, PartOfSpeech], rigidness=0.5):
 
         if synonym_scores:
             # randomly for now, apply rigidness factor later
-            return random.choice(list(synonym_scores.keys()))
+            new_word = random.choice(list(synonym_scores.keys()))
+            if highlighter is not None:
+                new_word = highlighter(new_word, word)
+            return new_word
         else:
             return word
     else:
         return word
 
 
-def apply_premium_speak(text, rigidness=0.5):
+def apply_premium_speak(text, rigidness=0.5, highlighter=None):
     sentences = preprocess(text)
-    rigid_words = [make_token_rigid(t, rigidness=rigidness) for s in sentences for t in s]
+    rigid_words = [make_token_rigid(t, rigidness=rigidness, highlighter=highlighter) for s in sentences for t in s]
     return ' '.join(rigid_words)
 
 
