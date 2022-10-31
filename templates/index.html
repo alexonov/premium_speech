@@ -15,17 +15,17 @@
         <div class="rendered-form">
         <div class="">
             <h1 access="false" id="control-455918">Premium speech generator</h1></div>
-        <div class="formbuilder-textarea form-group field-textarea-1666194981282">
+        <div class="formbuilder-textarea form-group field-textarea">
             <label for="text-input" class="formbuilder-textarea-label">Enter your text here:<span class="tooltip-element" tooltip="Enter the text that you want to make more premium"></span></label>
             <textarea type="textarea" class="form-control" name="text-input" access="false" rows="10" id="text-input" title="Enter the text that you want to make more premium">{{ input_text }}</textarea>
         </div>
-        <div class="formbuilder-button form-group field-button-1666195124281">
+        <div class="formbuilder-button form-group field-button">
             <button type="submit" class="btn-primary btn" name="button-submit" value="submit" access="false" style="primary" id="button-submit">Go</button>
             <button type="submit" class="btn-info btn" name="button-generate" value="generate" access="false" style="primary" id="button-generate">Random text</button>
         </div>
-        <div class="formbuilder-textarea form-group field-textarea-1666195218250">
+        <div class="formbuilder-textarea form-group field-textarea">
             <label for="text-output" class="formbuilder-textarea-label">Premium text:</label>
-            <div class="form-control" name="text-output" access="false" rows="10" id="text-output">{{ output_text | safe}}</div>
+            <div style="height: 300px; max-height: 400px; overflow-y:scroll; overflow-x: hidden" class="form-control" name="text-output" access="false" id="text-output">{{ output_text | safe}}</div></div>
         </div>
     </form>
 </div>
